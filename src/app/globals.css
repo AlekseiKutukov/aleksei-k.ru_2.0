@@ -41,6 +41,8 @@ a {
   }
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap');
+
 :root {
   /* Светлая тема (по умолчанию) */
   --background: #ffffff;
