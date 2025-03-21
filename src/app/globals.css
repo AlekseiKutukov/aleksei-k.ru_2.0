@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -39,4 +39,36 @@ a {
   html {
     color-scheme: dark;
   }
+} */
+
+:root {
+  /* Светлая тема (по умолчанию) */
+  --background: #ffffff;
+  --text-color: #000000;
+  --button-bg: #6b4acb;
+  --button-text: #ffffff;
+}
+
+[data-theme='dark'] {
+  /* Тёмная тема */
+  --background: #1a1a1a;
+  --text-color: #ffffff;
+  --button-bg: #8a6bff;
+  --button-text: #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

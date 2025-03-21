@@ -24,6 +24,10 @@ npm run dev
 -
 -
 
+тут обязательно что-то найдется
+не тупи закрой меня
+ну ты терпила
+
 useMemo — это хук React, который позволяет мемоизировать (запоминать) значение, чтобы избежать повторных вычислений при каждом рендере компонента. Он принимает два аргумента:
 
     Функция вычисления: Возвращает значение, которое нужно запомнить.
@@ -94,6 +98,19 @@ https://xatab-repack.rip/new-games/
 
 getStaticProps
 
+-
+-
+-
+-
+-
+
+создание фавикона в svg
+https://formito.com/tools/favicon
+
+-
+-
+-
+-
 -
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
