@@ -1,0 +1,95 @@
+/* Глобальные стили для box-sizing */
+.boxSizing {
+  box-sizing: border-box;
+}
+
+/* Стили для псевдоэлементов
+.after::after {
+  content: '';
+} */
+
+/* Основные стили для nav */
+.nav {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: #dc143c;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  position: relative;
+  width: 100px;
+  height: 60px;
+  cursor: pointer;
+  background: crimson;
+  /* text-transform: uppercase;  */
+  font-weight: bold;
+  transition: all 0.5s ease-out;
+  border-right: 2px solid #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navItem:first-child {
+  border-left: 2px solid #fdfdfd;
+}
+
+/* .navItemtS {
+  fill: #000;
+}
+
+.iconstS {
+  fill: #000;
+} */
+
+.icons {
+  width: 100%;
+  height: 50%;
+  /* background-color: #fff; */
+  fill: #fff;
+}
+
+.navText {
+  position: absolute;
+  top: 70px; /* Располагаем текст под элементом */
+  left: 0;
+  width: 100%; /* Ширина равна элементу */
+  height: 70px; /* Высота для текста */
+  background: white;
+  color: crimson;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transform: perspective(400px) rotateX(-90deg); /* Начальное свёрнутое состояние */
+  transform-origin: 100% 0; /* Точка вращения — верх */
+  transition: all 0.4s ease-out;
+}
+
+.navItem:hover {
+  transform: translateY(-70px); /* Сдвиг вверх */
+}
+
+.navItem:hover .navText {
+  opacity: 1;
+  transform: perspective(400px) rotateX(0deg) scale(1); /* Разворот текста */
+}
+
+.navItem > div {
+  display: inline-block;
+  padding: 25px 0;
+  background: transparent;
+  position: relative;
+}
