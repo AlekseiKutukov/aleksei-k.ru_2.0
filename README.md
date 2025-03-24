@@ -6,6 +6,9 @@
 Next.js
 ts
 git
+mongoDb
+Docker
+Docker Compose
 
 БИБЛИОТЕКИ:
 react-icons
@@ -15,6 +18,11 @@ react-icons
 -
 -
 -
+
+docker-compose down
+
+cd mongodb-docker
+docker-compose up -d
 
 npm run build
 npm run start

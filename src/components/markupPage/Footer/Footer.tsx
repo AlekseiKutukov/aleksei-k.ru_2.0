@@ -23,11 +23,11 @@ const Footer = () => {
         <div className={styles.footerSiteName}>
           <Link href="/">
             <div className={styles.footerLink} title="Вернуться на главную">
-              Алексей К 2024 год
+              Алексей К 2024-{new Date().getFullYear()}г.
             </div>
           </Link>
+          <ThemeSwitcher />
         </div>
-        <ThemeSwitcher />
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import style from './ThemeSwitcher.module.css';
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -20,8 +21,8 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <button onClick={toggleTheme}>
-      Переключить на {theme === 'light' ? 'тёмную' : 'светлую'} тему
+    <button className={style.button_switch} onClick={toggleTheme}>
+      {theme === 'light' ? 'Тёмная' : 'Светлая'} тема
     </button>
   );
 }
