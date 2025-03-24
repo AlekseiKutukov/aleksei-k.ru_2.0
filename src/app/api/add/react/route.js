@@ -1,7 +1,7 @@
-import dbConnect from '../../../../lib/mongodb';
+import dbConnect from '../../../../../lib/mongodb';
 import mongoose from 'mongoose';
 
-//http://localhost:3050/api/react
+//http://localhost:3050/api/add/react
 
 export async function GET(req) {
   try {
