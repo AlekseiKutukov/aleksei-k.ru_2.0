@@ -1,7 +1,7 @@
 import dbConnect from '../../../../../lib/mongodb';
 import mongoose from 'mongoose';
 
-//localhost:3050/post/react
+//curl -X POST localhost:3050/api/post/react
 
 export async function POST(req) {
   try {

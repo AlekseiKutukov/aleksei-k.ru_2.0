@@ -1,7 +1,7 @@
 import dbConnect from '../../../../../lib/mongodb';
 import mongoose from 'mongoose';
 
-//localhost:3050/post/npm
+//curl -X POST localhost:3050/api/post/npm
 
 export async function POST(req) {
   try {
