@@ -1,9 +1,9 @@
 import dbConnect from '../../../../../lib/mongodb';
 import mongoose from 'mongoose';
 
-//http://localhost:3050/api/add/react
+//localhost:3050/post/react
 
-export async function GET(req) {
+export async function POST(req) {
   try {
     await dbConnect();
     const collection = mongoose.connection.db.collection('react');
@@ -15,7 +15,7 @@ export async function GET(req) {
       '4_example': `Этот хук позволяет сохранять переменную или объект, и использовать ее между несколькими компонентами. Под самим же контекстом, понимают эту сохраненную величину.`,
     });
     return new Response(
-      JSON.stringify({ message: 'Данные добавлены в MongoDB!' }),
+      JSON.stringify({ message: 'Статья добавлена в коллекцию react!' }),
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },

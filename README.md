@@ -9,6 +9,7 @@ git
 mongoDb
 Docker
 Docker Compose
+RESTful API (GET, POST)
 
 БИБЛИОТЕКИ:
 react-icons

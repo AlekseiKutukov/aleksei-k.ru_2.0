@@ -1,21 +1,20 @@
 import dbConnect from '../../../../../lib/mongodb';
 import mongoose from 'mongoose';
 
-//http://localhost:3050/api/add/npm
+//localhost:3050/post/npm
 
-export async function GET(req) {
+export async function POST(req) {
   try {
     await dbConnect();
     const collection = mongoose.connection.db.collection('npm');
     await collection.insertOne({
-      '1_title': 'query-string',
-      '2_description': '(Router) конвертирует строку запроса в объект js',
-      '3_example': `const parsed = queryString.parse(location.search);
-console.log(parsed);
-//=> {foo: 'bar'}`,
+      '1_title': 'npm install',
+      '2_memorandum': 'Устанавливает зависимости проекта.',
+      '3_description': 'Команда для установки пакетов из package.json.',
+      '4_example': `npm install express`,
     });
     return new Response(
-      JSON.stringify({ message: 'Данные добавлены в MongoDB!' }),
+      JSON.stringify({ message: 'Статья добавлена в коллекцию npm!' }),
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
