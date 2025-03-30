@@ -1,19 +1,33 @@
 import dbConnect from '../../../../../../lib/mongodb';
 import mongoose from 'mongoose';
 
-export async function GET(req, { params }) {
+export async function GET(req, context) {
   try {
     await dbConnect();
+
+    // Ждем разрешения params
+    const params = await context.params;
+    if (!params || !params.title) {
+      return new Response(
+        JSON.stringify({ error: 'Название статьи не указано' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const title = params.title;
+
     const collection = mongoose.connection.db.collection('react');
     const article = await collection.findOne({
-      '1_title': { $regex: new RegExp(`^${params.title}$`, 'i') },
+      '1_title': { $regex: new RegExp(`^${title}$`, 'i') },
     });
+
     if (!article) {
       return new Response(JSON.stringify({ error: 'Статья не найдена' }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
       });
     }
+
     return new Response(JSON.stringify(article), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },

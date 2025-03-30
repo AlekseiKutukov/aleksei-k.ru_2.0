@@ -16,13 +16,21 @@ async function fetchArticle(title) {
   return res.json();
 }
 
-export default async function ArticlePage({ params }) {
-  try {
-    const { title } = params;
-    if (!title) {
-      throw new Error('Название статьи не указано');
-    }
+export default async function ArticlePage(props) {
+  // "await" для params
+  const params = await props.params;
+  const { title } = params;
 
+  if (!title) {
+    return (
+      <div>
+        <h1>Ошибка</h1>
+        <p>Название статьи не указано</p>
+      </div>
+    );
+  }
+
+  try {
     const article = await fetchArticle(title);
 
     return (
