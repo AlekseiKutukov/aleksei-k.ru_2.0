@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import Header from '@/components/markupPage/Header/Header';
+import Menu from '@/components/markupPage/Menu/Menu';
+import Footer from '@/components/markupPage/Footer/Footer';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -28,7 +31,10 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <Header />
+        <Menu />
+        <div className="main">{children}</div>
+        <Footer />
       </body>
     </html>
   );

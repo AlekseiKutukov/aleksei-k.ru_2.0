@@ -66,6 +66,13 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.main {
+  min-height: 90vh;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 15px 15px 70px;
+}
+
 button {
   background-color: var(--button-bg);
   color: var(--button-text);

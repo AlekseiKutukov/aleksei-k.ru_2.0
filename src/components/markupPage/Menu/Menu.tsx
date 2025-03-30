@@ -38,7 +38,9 @@ const Menu = () => {
 
         <li className={styles.navItem}>
           <FaReact className={styles.icons} />
-          <span className={styles.navText}>React</span>
+          <Link href="/react">
+            <span className={styles.navText}>React</span>
+          </Link>
         </li>
 
         <li className={styles.navItem}>
