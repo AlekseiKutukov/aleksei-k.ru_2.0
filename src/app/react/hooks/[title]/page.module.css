@@ -1,0 +1,35 @@
+.memorandum {
+  background-color: #fff3b4;
+  border: 1px solid red;
+  border-radius: 2px;
+  box-shadow: 0 0 5px #535353;
+  margin: 20px;
+  padding: 15px;
+}
+
+.important {
+  background-color: #ffcfd9;
+  border: 1px solid red;
+  border-radius: 2px;
+  box-shadow: 0 0 5px #535353;
+  padding: 15px;
+  font-style: italic;
+}
+
+.description {
+  margin: 20px;
+}
+
+.content h2 {
+  /* padding-top: 20px; */
+  margin-bottom: 10px;
+}
+
+.example_code {
+  background-color: #cacaca;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  box-shadow: 0 0 5px #535353;
+  letter-spacing: 1px;
+  padding: 20px;
+}

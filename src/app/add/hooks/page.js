@@ -1,13 +1,17 @@
 'use client'; // Указываем, что это клиентский компонент
 
 import { useState } from 'react';
+import style from './style.module.css';
 
 export default function AddArticle() {
   const [formData, setFormData] = useState({
     '1_title': '',
     '2_memorandum': '',
     '3_description': '',
-    '4_example': '',
+    '4_whatDoesItDo': '',
+    '5_whenToUse': '',
+    '6_example': '',
+    '7_important': '',
   });
 
   const handleChange = (e) => {
@@ -18,7 +22,7 @@ export default function AddArticle() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/addArticle', {
+      const res = await fetch('/api/add/hooks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -30,7 +34,10 @@ export default function AddArticle() {
           '1_title': '',
           '2_memorandum': '',
           '3_description': '',
-          '4_example': '',
+          '4_whatDoesItDo': '',
+          '5_whenToUse': '',
+          '6_example': '',
+          '7_important': '',
         });
       } else {
         alert('Ошибка при добавлении статьи');
@@ -43,44 +50,80 @@ export default function AddArticle() {
 
   return (
     <div>
-      <h1>Добавить новую статью</h1>
+      <h1>Добавление нового хука</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className={style.block}>
           <label htmlFor="1_title">Название</label>
+          <br />
           <input
+            className={style.input}
             type="text"
             name="1_title"
             value={formData['1_title']}
             onChange={handleChange}
-            required
+            required //флаг обязательно к заполнению
           />
         </div>
-        <div>
+        <div className={style.block}>
           <label htmlFor="2_memorandum">Короткое описание</label>
-          <input
+          <br />
+          <textarea
+            className={style.textarea}
             type="text"
             name="2_memorandum"
             value={formData['2_memorandum']}
             onChange={handleChange}
-            required
           />
         </div>
-        <div>
+        <div className={style.block}>
           <label htmlFor="3_description">Описание</label>
+          <br />
           <textarea
+            className={style.textarea}
             name="3_description"
             value={formData['3_description']}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label htmlFor="4_example">Пример</label>
+        <div className={style.block}>
+          <label htmlFor="4_whatDoesItDo">Что делает хук?</label>
+          <br />
           <textarea
-            name="4_example"
-            value={formData['4_example']}
+            className={style.textarea}
+            name="4_whatDoesItDo"
+            value={formData['4_whatDoesItDo']}
             onChange={handleChange}
-            required
+          />
+        </div>
+        <div className={style.block}>
+          <label htmlFor="5_whenToUse">Когда использовать?</label>
+          <br />
+          <textarea
+            className={style.textarea}
+            name="5_whenToUse"
+            value={formData['5_whenToUse']}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={style.block}>
+          <label htmlFor="6_example">Пример</label>
+          <br />
+          <textarea
+            className={style.textarea}
+            name="6_example"
+            value={formData['6_example']}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={style.block}>
+          <label htmlFor="7_important">Важные моменты</label>
+          <br />
+          <textarea
+            className={style.textarea}
+            name="7_important"
+            value={formData['7_important']}
+            onChange={handleChange}
           />
         </div>
         <button type="submit">Добавить статью</button>

@@ -1,4 +1,4 @@
-import dbConnect from '../../../../lib/mongodb';
+import dbConnect from '../../../../../lib/mongodb';
 
 export async function POST(req) {
   try {
@@ -12,7 +12,10 @@ export async function POST(req) {
       '1_title': data['1_title'],
       '2_memorandum': data['2_memorandum'],
       '3_description': data['3_description'],
-      '4_example': data['4_example'],
+      '4_whatDoesItDo': data['4_whatDoesItDo'],
+      '5_whenToUse': data['5_whenToUse'],
+      '6_example': data['6_example'],
+      '7_important': data['7_important'],
     });
 
     return new Response(JSON.stringify({ message: 'Статья добавлена' }), {
