@@ -29,7 +29,7 @@ export async function generateMetadata(props) {
     const article = await fetchArticle(title);
 
     return {
-      title: article['1_title'], // Заголовок страницы
+      title: `React хук ${article['1_title']} - что делает, когда использовать, пример кода`, // Заголовок страницы
       description: article['3_description'], // Описание для мета-тега
     };
   } catch (error) {
@@ -60,7 +60,13 @@ export default async function ArticlePage(props) {
     return (
       <div className={style.content}>
         <h1>{article['1_title']}</h1>
-        <div className={style.memorandum}>{article['2_memorandum']}</div>
+        {article['2_memorandum'] && (
+          <div
+            className={style.memorandum}
+            dangerouslySetInnerHTML={{ __html: article['2_memorandum'] }}
+          />
+        )}
+
         <div
           className={style.description}
           dangerouslySetInnerHTML={{ __html: article['3_description'] }}

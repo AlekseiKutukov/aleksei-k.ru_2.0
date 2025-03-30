@@ -32,4 +32,8 @@
   box-shadow: 0 0 5px #535353;
   letter-spacing: 1px;
   padding: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
