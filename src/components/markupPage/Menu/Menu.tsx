@@ -60,7 +60,9 @@ const Menu = () => {
 
         <li className={styles.navItem}>
           <AiOutlineJavaScript className={styles.icons} />
-          <span className={styles.navText}>JavaScript</span>
+          <Link href="/js">
+            <span className={styles.navText}>JavaScript</span>
+          </Link>
         </li>
 
         <li className={styles.navItem}>

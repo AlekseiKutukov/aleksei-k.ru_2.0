@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import dbConnect from '../../../../../lib/mongodb';
+// import dbConnect from '../../../../../lib/mongodb';
 import style from './page.module.css';
 
 async function fetchArticle(title) {

@@ -1,0 +1,42 @@
+.my_id {
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.question {
+  padding: 5px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 3px #0f0f0f;
+  background: linear-gradient(#0d80d8, #0d80d8) padding-box padding-box,
+    linear-gradient(145deg, #00000030 35%, #0d80d8, #40f) border-box;
+  border: 2px solid #0000;
+}
+
+.question:hover {
+  transform: scale(1.005);
+  transition: all 0.6s;
+  box-shadow: 0 0 10px #0d80d8;
+}
+
+.title {
+  display: flex;
+  gap: 10px;
+}
+
+.title h3 {
+  margin: 0;
+}
+
+.description {
+  color: #fff;
+  padding: 10px;
+}
+
+.example_code {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  color: #000;
+}
