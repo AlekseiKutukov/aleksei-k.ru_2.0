@@ -21,7 +21,12 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <button className={style.button_switch} onClick={toggleTheme}>
+    <button
+      className={`${style.button_switch} ${
+        theme === 'light' ? style.darkText : style.lightText
+      }`}
+      onClick={toggleTheme}
+    >
       {theme === 'light' ? 'Тёмная' : 'Светлая'} тема
     </button>
   );

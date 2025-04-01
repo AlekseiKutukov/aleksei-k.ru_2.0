@@ -5,10 +5,10 @@
 }
 
 .button_hooks {
-  background-color: #c4c4c4;
-  border: 2px solid #777;
+  background-color: #feffff;
+  /* border: 2px solid #0d80d8; */
   border-radius: 3px;
-  color: #000;
+  color: #0d80d8;
   margin: 10px;
   padding: 10px;
   text-decoration: none;
@@ -16,6 +16,8 @@
   transition: all 0.35s;
   letter-spacing: 2px;
   text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 5px #0d80d8;
 }
 
 .button_hooks span {
@@ -38,6 +40,6 @@
   left: 0;
   width: 0;
   height: 100%;
-  background: #dc143c;
+  background: #0d80d8;
   transition: all 0.55s;
 }

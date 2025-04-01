@@ -9,14 +9,14 @@
 .header {
   background-color: #1a1a1a;
   color: #fff;
-  border-bottom: 3px solid crimson;
+  border-bottom: 3px solid #58c4dc;
 }
 
 .logo {
   font-family: 'Jolly Lodger';
   font-size: 40px;
   font-weight: 400;
-  color: #9d9d9d;
+  color: #0d80d8;
 }
 
 .logo:hover {

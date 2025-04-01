@@ -5,6 +5,7 @@
   box-shadow: 0 0 5px #535353;
   margin: 20px;
   padding: 15px;
+  color: #000;
 }
 
 .important {
@@ -14,6 +15,7 @@
   box-shadow: 0 0 5px #535353;
   padding: 15px;
   font-style: italic;
+  color: #000;
 }
 
 .description {
@@ -36,4 +38,5 @@
   overflow-x: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
+  color: #000;
 }

@@ -1,10 +1,24 @@
 .button_switch {
-  background-color: #000;
-  color: var(--button-text);
-  padding: 5px 10px;
+  background-color: #0d80d8;
+  color: var(--button-text); /* Оставляем как fallback */
+  padding: 10px 15px;
+  box-shadow: 0 0 5px #000;
+  font-weight: bold;
+  border: none; /* Добавляем, если кнопка не должна иметь границ */
+  cursor: pointer; /* Указатель при наведении */
 }
 
 .button_switch:hover {
   transform: scale(1.05);
   transition: all 0.6s;
+}
+
+/* Класс для тёмного текста (когда "Тёмная тема") */
+.darkText {
+  color: #000; /* Чёрный текст */
+}
+
+/* Класс для светлого текста (когда "Светлая тема") */
+.lightText {
+  color: #fff; /* Белый текст */
 }

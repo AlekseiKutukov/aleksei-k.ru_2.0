@@ -3,7 +3,7 @@
   position: relative;
   top: 0;
   left: 0;
-  background: #dc143c;
+  background: #0d80d8;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@
   width: 100px;
   height: 60px;
   cursor: pointer;
-  background: crimson;
+  background: #0d80d8;
   font-weight: bold;
   transition: transform 0.4s ease-out; /* Указываем конкретно transform */
   border-right: 2px solid #fdfdfd;
@@ -48,7 +48,7 @@
   width: 100%;
   height: 60px; /* Уменьшаем высоту текста до высоты элемента */
   background: white;
-  color: crimson;
+  color: #0d80d8;
   display: flex;
   align-items: center;
   justify-content: center;
