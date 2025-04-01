@@ -1,0 +1,43 @@
+.block_hooks {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.button_hooks {
+  background-color: #c4c4c4;
+  border: 2px solid #777;
+  border-radius: 3px;
+  color: #000;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.35s;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.button_hooks span {
+  position: relative;
+  z-index: 99;
+}
+
+.button_hooks:hover {
+  color: #fff;
+}
+
+.button_hooks:hover:after {
+  width: 100%;
+}
+
+.button_hooks:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #dc143c;
+  transition: all 0.55s;
+}
