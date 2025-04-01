@@ -1,13 +1,3 @@
-/* Глобальные стили для box-sizing */
-.boxSizing {
-  box-sizing: border-box;
-}
-
-/* Стили для псевдоэлементов
-.after::after {
-  content: '';
-} */
-
 /* Основные стили для nav */
 .nav {
   position: relative;
@@ -33,9 +23,8 @@
   height: 60px;
   cursor: pointer;
   background: crimson;
-  /* text-transform: uppercase;  */
   font-weight: bold;
-  transition: all 0.5s ease-out;
+  transition: transform 0.4s ease-out; /* Указываем конкретно transform */
   border-right: 2px solid #fdfdfd;
   display: flex;
   justify-content: center;
@@ -46,47 +35,39 @@
   border-left: 2px solid #fdfdfd;
 }
 
-/* .navItemtS {
-  fill: #000;
-}
-
-.iconstS {
-  fill: #000;
-} */
-
 .icons {
   width: 100%;
   height: 50%;
-  /* background-color: #fff; */
   fill: #fff;
 }
 
 .navText {
   position: absolute;
-  top: 70px; /* Располагаем текст под элементом */
+  top: 100%; /* Текст начинается сразу под элементом */
   left: 0;
-  width: 100%; /* Ширина равна элементу */
-  height: 70px; /* Высота для текста */
+  width: 100%;
+  height: 60px; /* Уменьшаем высоту текста до высоты элемента */
   background: white;
   color: crimson;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.5;
+  opacity: 0; /* Начальная прозрачность */
   transform: perspective(400px) rotateX(-90deg); /* Начальное свёрнутое состояние */
-  transform-origin: 100% 0; /* Точка вращения — верх */
-  transition: all 0.4s ease-out;
+  transform-origin: top; /* Точка вращения — верх текста */
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Синхронизируем с navItem */
 }
 
 .navItem:hover {
-  transform: translateY(-70px); /* Сдвиг вверх */
+  transform: translateY(-60px); /* Сдвиг вверх на высоту элемента */
 }
 
 .navItem:hover .navText {
   opacity: 1;
-  transform: perspective(400px) rotateX(0deg) scale(1); /* Разворот текста */
+  transform: perspective(400px) rotateX(0deg); /* Разворот текста */
 }
 
+/* Убираем лишнее */
 .navItem > div {
   display: inline-block;
   padding: 25px 0;
