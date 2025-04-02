@@ -32,7 +32,7 @@ export async function generateMetadata(props) {
       title: `React хук ${article['1_title']} - что делает, когда использовать, пример кода`, // Заголовок страницы
       description: article['3_description'], // Описание для мета-тега
     };
-  } catch (error) {
+  } catch {
     return {
       title: 'Статья не найдена',
       description: 'Запрашиваемая статья не существует.',
@@ -110,7 +110,7 @@ export default async function ArticlePage(props) {
         )}
       </div>
     );
-  } catch (error) {
+  } catch {
     notFound();
   }
 }

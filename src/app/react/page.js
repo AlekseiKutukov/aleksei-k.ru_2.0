@@ -15,8 +15,8 @@ async function fetchArticles() {
 
 // Генерация метаданных (без проверки ошибок)
 export async function generateMetadata() {
-  const articles = await fetchArticles();
-  const articleCount = articles.length;
+  // const articles = await fetchArticles();
+  // const articleCount = articles.length;
 
   return {
     title: 'Всё о React - хуки и примеры кода',
@@ -58,7 +58,7 @@ export default async function ReactPage() {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch {
     notFound(); // При ошибке переходим на 404
   }
 }

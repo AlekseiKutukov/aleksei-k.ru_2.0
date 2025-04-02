@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 //curl -X POST localhost:3050/api/post/npm
 
-export async function POST(req) {
+export async function POST() {
   try {
     await dbConnect();
     const collection = mongoose.connection.db.collection('npm');

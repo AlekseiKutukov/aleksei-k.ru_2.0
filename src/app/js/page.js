@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import style from './page.module.css';
-import QuestionsList from './QuestionsList'; // Новый клиентский компонент
+import QuestionsList from './QuestionsList';
 
 async function fetchArticles() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -16,7 +16,7 @@ async function fetchArticles() {
   return res.json();
 }
 
-// Генерация метаданных
+// Генерация метаданных на основе данных страницы
 export async function generateMetadata() {
   try {
     const articles = await fetchArticles();
@@ -26,7 +26,7 @@ export async function generateMetadata() {
       title: `Вопросы для подготовки к собеседованию на JS`,
       description: `Изучите ${articleCount} вопросов для подготовки к собеседованию на позицию фронтенд-разработчика по языку программирования JavaScript`,
     };
-  } catch (error) {
+  } catch {
     return {
       title: 'Статьи не найдены',
       description: 'Запрашиваемые статьи не существуют.',
@@ -35,20 +35,22 @@ export async function generateMetadata() {
 }
 
 export default async function ArticlePage() {
-  try {
-    const articles = await fetchArticles();
+  let articles;
 
-    return (
-      <div className={style.content}>
-        <h1>Вопросы для подготовки к собеседованию на JS</h1>
-        {articles.length === 0 ? (
-          <p>Статьи не найдены</p>
-        ) : (
-          <QuestionsList articles={articles} />
-        )}
-      </div>
-    );
-  } catch (error) {
+  try {
+    articles = await fetchArticles();
+  } catch {
     notFound();
   }
+
+  return (
+    <div className={style.content}>
+      <h1>Вопросы для подготовки к собеседованию на JS</h1>
+      {articles.length === 0 ? (
+        <p>Статьи не найдены</p>
+      ) : (
+        <QuestionsList articles={articles} />
+      )}
+    </div>
+  );
 }

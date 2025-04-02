@@ -1,11 +1,11 @@
 import dbConnect from '../../../../../lib/mongodb';
+import mongoose from 'mongoose';
 
 export async function POST(req) {
   try {
     await dbConnect(); // Подключаемся к базе данных
     const data = await req.json(); // Получаем данные из формы
 
-    const mongoose = require('mongoose');
     const collection = mongoose.connection.db.collection('react'); // Коллекция 'react'
 
     await collection.insertOne({

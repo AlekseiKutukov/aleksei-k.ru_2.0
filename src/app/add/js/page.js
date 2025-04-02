@@ -88,7 +88,6 @@ export default function AddArticle() {
             name="4_exampleCode"
             value={formData['4_exampleCode']}
             onChange={handleChange}
-            required
           />
         </div>
         <button type="submit">Добавить статью</button>
