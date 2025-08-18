@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import style from './page.module.css';
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import style from "./page.module.css";
 
 // Функция для получения списка статей
 async function fetchArticles() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const res = await fetch(`${baseUrl}/api/get/react`, {
-    cache: 'no-store',
+    cache: "no-store",
   });
-  if (!res.ok) throw new Error('Ошибка загрузки данных');
+  if (!res.ok) throw new Error("Ошибка загрузки данных");
   return res.json();
 }
 
@@ -19,7 +19,7 @@ export async function generateMetadata() {
   // const articleCount = articles.length;
 
   return {
-    title: 'Всё о React - хуки и примеры кода',
+    title: "Всё о React - хуки и примеры кода",
     description: `Изучайте React с описанием и примерами использования.`,
   };
 }
@@ -37,25 +37,14 @@ export default async function ReactPage() {
           {articles.map((article) => (
             <Link
               key={article._id}
-              href={`/react/hooks/${article['1_title']}`}
+              href={`/react/hooks/${article["1_title"]}`}
               className={style.button_hooks}
             >
-              <span>{article['1_title']}</span>
+              <span>{article["1_title"]}</span>
             </Link>
           ))}
         </div>
-        <h2>Примеры кода</h2>
-        <div className={style.block_hooks}>
-          {articles.map((article) => (
-            <Link
-              key={article._id}
-              href={`/react/hooks/${article['1_title']}`}
-              className={style.button_hooks}
-            >
-              {article['1_title']}
-            </Link>
-          ))}
-        </div>
+        {/* <h2>Примеры кода</h2> */}
       </div>
     );
   } catch {
