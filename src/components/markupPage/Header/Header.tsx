@@ -1,6 +1,6 @@
-import Search from '@/components/UI/Search/Search';
-import Link from 'next/link';
-import styles from './Header.module.css';
+import Search from "@/components/UI/Search/Search";
+import Link from "next/link";
+import styles from "./Header.module.css";
 
 const Header = () => {
   return (
@@ -9,9 +9,7 @@ const Header = () => {
         <Link href="/">
           <div className={styles.logo}>AJIEKCEU K</div>
         </Link>
-        <div className={styles.search}>
-          <Search />
-        </div>
+        <div className={styles.search}>{/* <Search /> */}</div>
       </div>
     </div>
   );

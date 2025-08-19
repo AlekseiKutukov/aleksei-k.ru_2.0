@@ -8,8 +8,16 @@
   border-radius: 3px;
   margin-bottom: 10px;
   box-shadow: 0 0 3px #0f0f0f;
-  background: linear-gradient(#0d80d8, #0d80d8) padding-box padding-box,
+  background: linear-gradient(#0d80d8, #94d1ff) padding-box padding-box,
     linear-gradient(145deg, #00000030 35%, #0d80d8, #40f) border-box;
+  border: 2px solid #0000;
+}
+
+[data-theme="dark"].question {
+  border-radius: 3px;
+  box-shadow: 0 0 3px #0f0f0f;
+  background: linear-gradient(#003762, #0062ac) padding-box padding-box,
+    linear-gradient(145deg, #00000030 35%, #000, #120042) border-box;
   border: 2px solid #0000;
 }
 

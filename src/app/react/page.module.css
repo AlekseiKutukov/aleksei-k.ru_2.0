@@ -20,6 +20,11 @@
   box-shadow: 0 0 5px #0d80d8;
 }
 
+[data-theme="dark"].button_hooks {
+  background-color: #003762;
+  color: #cacaca;
+}
+
 .button_hooks span {
   position: relative;
   z-index: 99;
@@ -35,7 +40,7 @@
 
 .button_hooks:after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   width: 0;
@@ -43,3 +48,7 @@
   background: #0d80d8;
   transition: all 0.55s;
 }
+
+/* [data-theme="dark"].button_hooks:after {
+  background: #003762;
+} */

@@ -2,7 +2,7 @@
 
 :root {
   /* Светлая тема (по умолчанию) */
-  --background: #ffffff;
+  --background: #eaeaea;
   --text-color: #000000;
   --button-bg: #6b4acb;
   --button-text: #ffffff;
@@ -10,8 +10,8 @@
 
 [data-theme="dark"] {
   /* Тёмная тема */
-  --background: #1a1a1a;
-  --text-color: #ffffff;
+  --background: #3c3c3c;
+  --text-color: #cacaca;
   --button-bg: #8a6bff;
   --button-text: #000000;
 }

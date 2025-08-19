@@ -23,6 +23,8 @@ npm run build
 npm run start
 npm run dev
 
+создай скрипт отклика на вакансии
+
 поиск
 https://codepen.io/lhenrique/embed/JvqGjj?height=316&theme-id=0&default-tab=result
 

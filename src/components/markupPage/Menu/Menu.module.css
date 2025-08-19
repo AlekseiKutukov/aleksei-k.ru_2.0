@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+[data-theme="dark"] .nav {
+  background: #003762;
+}
+
 .navList {
   display: flex;
   flex-direction: row;
@@ -30,6 +34,10 @@
   align-items: center;
 }
 
+[data-theme="dark"] .navItem {
+  background: #003762;
+}
+
 .navItem:first-child {
   border-left: 2px solid #fdfdfd;
 }
@@ -46,7 +54,7 @@
   left: 0;
   width: 100%;
   height: 60px; /* Уменьшаем высоту текста до высоты элемента */
-  background: white;
+  background: #eaeaea;
   color: #0d80d8;
   display: flex;
   align-items: center;
@@ -57,6 +65,10 @@
   transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Синхронизируем с navItem */
 }
 
+[data-theme="dark"] .navText {
+  background: #3c3c3c;
+  color: #cacaca;
+}
 .navItem:hover,
 .navItem.active {
   transform: translateY(-60px); /* Сдвиг вверх на высоту элемента */
