@@ -1,0 +1,16 @@
+.linkAdd {
+  padding: 10px 20px;
+  color: #000;
+  background: linear-gradient(#eaeaea, #eaeaea) padding-box padding-box,
+    linear-gradient(145deg, #0000 10%, #c4c4c4, #0d80d8) border-box;
+  border: 2px solid #0000;
+  cursor: pointer;
+  margin-bottom: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.linkAdd:hover {
+  transform: translateX(20px);
+}

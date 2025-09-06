@@ -1,14 +1,16 @@
-'use client'; // Указываем, что это клиентский компонент
+"use client";
 
-import { useState } from 'react';
-import style from './style.module.css';
+import { useState } from "react";
+import { useAuthPrompt } from "../../../hooks/useAuthPrompt";
+import style from "./style.module.css";
 
 export default function AddArticle() {
+  const { authenticate } = useAuthPrompt();
   const [formData, setFormData] = useState({
-    '1_myId': '',
-    '2_title': '',
-    '3_description': '',
-    '4_exampleCode': '',
+    "1_myId": "",
+    "2_title": "",
+    "3_description": "",
+    "4_exampleCode": "",
   });
 
   const handleChange = (e) => {
@@ -18,27 +20,31 @@ export default function AddArticle() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!authenticate()) {
+      return;
+    }
+
     try {
-      const res = await fetch('/api/add/js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/add/js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (res.ok) {
-        alert('Статья успешно добавлена!');
+        alert("Статья успешно добавлена!");
         setFormData({
-          '1_myId': '',
-          '2_title': '',
-          '3_description': '',
-          '4_exampleCode': '',
+          "1_myId": "",
+          "2_title": "",
+          "3_description": "",
+          "4_exampleCode": "",
         });
       } else {
-        alert('Ошибка при добавлении статьи');
+        alert("Ошибка при добавлении статьи");
       }
     } catch (error) {
       console.error(error);
-      alert('Произошла ошибка');
+      alert("Произошла ошибка");
     }
   };
 
@@ -53,7 +59,7 @@ export default function AddArticle() {
             className={style.input_num}
             type="number"
             name="1_myId"
-            value={formData['1_myId']}
+            value={formData["1_myId"]}
             onChange={handleChange}
             required //флаг обязательно к заполнению
           />
@@ -65,7 +71,7 @@ export default function AddArticle() {
             className={style.textarea}
             type="text"
             name="2_title"
-            value={formData['2_title']}
+            value={formData["2_title"]}
             onChange={handleChange}
           />
         </div>
@@ -75,7 +81,7 @@ export default function AddArticle() {
           <textarea
             className={style.textarea}
             name="3_description"
-            value={formData['3_description']}
+            value={formData["3_description"]}
             onChange={handleChange}
             required
           />
@@ -86,7 +92,7 @@ export default function AddArticle() {
           <textarea
             className={style.textarea}
             name="4_exampleCode"
-            value={formData['4_exampleCode']}
+            value={formData["4_exampleCode"]}
             onChange={handleChange}
           />
         </div>

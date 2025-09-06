@@ -11,7 +11,7 @@
 !.yarn/versions
 /public
 .env.local
-
+/mongodb-docker/*
 # testing
 /coverage
 

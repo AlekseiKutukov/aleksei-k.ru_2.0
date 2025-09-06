@@ -2,10 +2,10 @@
   background-color: #000;
   color: var(--button-text); /* Оставляем как fallback */
   padding: 10px 15px;
-  box-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 2px #fff;
   font-weight: bold;
-  border: none; /* Добавляем, если кнопка не должна иметь границ */
-  cursor: pointer; /* Указатель при наведении */
+  border: none;
+  cursor: pointer;
 }
 
 .button_switch:hover {
@@ -21,6 +21,7 @@
   color: #000;
 }
 
-[data-theme="dark"].button_switch {
-  background-color: #fff;
+[data-theme="dark"] .button_switch {
+  background-color: #eee;
+  box-shadow: 0 0 2px #000000;
 }
