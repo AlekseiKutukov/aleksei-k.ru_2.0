@@ -10,7 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 /public
-
+.env.local
 
 # testing
 /coverage

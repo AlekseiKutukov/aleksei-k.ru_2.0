@@ -1,20 +1,17 @@
-ТЕХНОЛОГИИ:
-Next.js
-ts
-git
-mongoDb
-Docker
-Docker Compose
-RESTful API (GET, POST)
+# Сайт портфолио
 
-БИБЛИОТЕКИ:
-react-icons
+[Открыть демо](https://aleksei-k.ru)
 
--
--
--
--
--
+## Использовано:
+
+![Next JS](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)  
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)  
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)  
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)  
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)  
+![RESTful API](https://img.shields.io/badge/RESTful_API-000000?style=for-the-badge&logo=aparat&logoColor=white)
+
+## Запуск:
 
 cd mongodb-docker
 docker compose up -d
@@ -23,7 +20,7 @@ npm run build
 npm run start
 npm run dev
 
-создай скрипт отклика на вакансии
+## Далее идут просто полезные ссылки, которые я скоро разберу
 
 поиск
 https://codepen.io/lhenrique/embed/JvqGjj?height=316&theme-id=0&default-tab=result
