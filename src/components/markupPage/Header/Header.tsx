@@ -1,4 +1,3 @@
-import Search from "@/components/UI/Search/Search";
 import Link from "next/link";
 import styles from "./Header.module.css";
 
