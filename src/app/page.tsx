@@ -1,6 +1,12 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 
+export const metadata = {
+  title: "Помощник для frontend-разработчика",
+  description:
+    "Начни свой путь во frontend-разработке с нами, сайт для начинающих фронтенд разработчиков, который поможет, подскажет и научит всему",
+};
+
 export default function Home() {
   return (
     <>

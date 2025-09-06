@@ -8,10 +8,10 @@ import { AiOutlineJavaScript } from "react-icons/ai";
 export const menuItems = [
   { href: "/", text: "Главная", icon: FaHome },
   { href: "/react", text: "React", icon: FaReact },
+  { href: "/js", text: "JavaScript", icon: AiOutlineJavaScript },
   { href: "/npm", text: "npm", icon: FaNpm },
   { href: "/git", text: "Git", icon: LiaGitSquare },
   { href: "/ts", text: "TypeScript", icon: SiTypescript },
-  { href: "/js", text: "JavaScript", icon: AiOutlineJavaScript },
   { href: "/polezno", text: "Полезно", icon: MdOutlineDoubleArrow },
   { href: "/portfolio", text: "Портфолио", icon: BsBriefcaseFill },
 ];
