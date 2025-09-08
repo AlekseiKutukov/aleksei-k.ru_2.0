@@ -1,32 +1,32 @@
-import dbConnect from '../../../../../lib/mongodb';
-import mongoose from 'mongoose';
+import dbConnect from "../../../../../lib/mongodb";
+import mongoose from "mongoose";
 
 export async function POST(req) {
   try {
     await dbConnect(); // Подключаемся к базе данных
     const data = await req.json(); // Получаем данные из формы
 
-    const collection = mongoose.connection.db.collection('react'); // Коллекция 'react'
+    const collection = mongoose.connection.db.collection("react"); // Коллекция 'react'
 
     await collection.insertOne({
-      '1_title': data['1_title'],
-      '2_memorandum': data['2_memorandum'],
-      '3_description': data['3_description'],
-      '4_whatDoesItDo': data['4_whatDoesItDo'],
-      '5_whenToUse': data['5_whenToUse'],
-      '6_example': data['6_example'],
-      '7_important': data['7_important'],
+      title: data["title"],
+      memorandum: data["memorandum"],
+      description: data["description"],
+      whatDoesItDo: data["whatDoesItDo"],
+      whenToUse: data["whenToUse"],
+      example: data["example"],
+      important: data["important"],
     });
 
-    return new Response(JSON.stringify({ message: 'Статья добавлена' }), {
+    return new Response(JSON.stringify({ message: "Статья добавлена" }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: 'Ошибка сервера' }), {
+    return new Response(JSON.stringify({ error: "Ошибка сервера" }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }

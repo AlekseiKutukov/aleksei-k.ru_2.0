@@ -1,16 +1,16 @@
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 // import dbConnect from '../../../../../lib/mongodb';
-import style from './page.module.css';
+import style from "./page.module.css";
 
 async function fetchArticle(title) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   if (!baseUrl) {
-    throw new Error('Базовый URL не указан');
+    throw new Error("Базовый URL не указан");
   }
 
   const res = await fetch(`${baseUrl}/api/get/react/${title}`, {
-    cache: 'no-store',
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -29,13 +29,13 @@ export async function generateMetadata(props) {
     const article = await fetchArticle(title);
 
     return {
-      title: `React хук ${article['1_title']} - что делает, когда использовать, пример кода`, // Заголовок страницы
-      description: article['3_description'], // Описание для мета-тега
+      title: `React хук ${article["title"]} - что делает, когда использовать, пример кода`, // Заголовок страницы
+      description: article["description"], // Описание для мета-тега
     };
   } catch {
     return {
-      title: 'Статья не найдена',
-      description: 'Запрашиваемая статья не существует.',
+      title: "Статья не найдена",
+      description: "Запрашиваемая статья не существует.",
     };
   }
 }
@@ -59,52 +59,52 @@ export default async function ArticlePage(props) {
 
     return (
       <div className={style.content}>
-        <h1>{article['1_title']}</h1>
-        {article['2_memorandum'] && (
+        <h1>{article["title"]}</h1>
+        {article["memorandum"] && (
           <div
             className={style.memorandum}
-            dangerouslySetInnerHTML={{ __html: article['2_memorandum'] }}
+            dangerouslySetInnerHTML={{ __html: article["memorandum"] }}
           />
         )}
 
         <div
           className={style.description}
-          dangerouslySetInnerHTML={{ __html: article['3_description'] }}
+          dangerouslySetInnerHTML={{ __html: article["description"] }}
         />
 
         {/* Что делает */}
-        {article['4_whatDoesItDo'] && (
+        {article["whatDoesItDo"] && (
           <div className={style.description}>
-            <h2>Что делает {article['1_title']}?</h2>
+            <h2>Что делает {article["title"]}?</h2>
             <div
-              dangerouslySetInnerHTML={{ __html: article['4_whatDoesItDo'] }}
+              dangerouslySetInnerHTML={{ __html: article["whatDoesItDo"] }}
             />
           </div>
         )}
 
         {/* когда использовать */}
-        {article['5_whenToUse'] && (
+        {article["whenToUse"] && (
           <div className={style.description}>
-            <h2>Когда использовать {article['1_title']}?</h2>
-            <div dangerouslySetInnerHTML={{ __html: article['5_whenToUse'] }} />
+            <h2>Когда использовать {article["title"]}?</h2>
+            <div dangerouslySetInnerHTML={{ __html: article["whenToUse"] }} />
           </div>
         )}
 
         {/* пример кода */}
-        {article['6_example'] && (
+        {article["example"] && (
           <div className={style.description}>
             <h3>Пример кода</h3>
-            <pre className={style.example_code}>{article['6_example']}</pre>
+            <pre className={style.example_code}>{article["example"]}</pre>
           </div>
         )}
 
         {/* Важно */}
-        {article['7_important'] && (
+        {article["important"] && (
           <div className={style.description}>
             <h3>Важно</h3>
             <div
               className={style.important}
-              dangerouslySetInnerHTML={{ __html: article['7_important'] }}
+              dangerouslySetInnerHTML={{ __html: article["important"] }}
             />
           </div>
         )}

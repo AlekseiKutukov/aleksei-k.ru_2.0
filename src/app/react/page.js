@@ -37,10 +37,10 @@ export default async function ReactPage() {
           {articles.map((article) => (
             <Link
               key={article._id}
-              href={`/react/hooks/${article["1_title"]}`}
+              href={`/react/hooks/${article["title"]}`}
               className={style.button_hooks}
             >
-              <span>{article["1_title"]}</span>
+              <span>{article["title"]}</span>
             </Link>
           ))}
         </div>
