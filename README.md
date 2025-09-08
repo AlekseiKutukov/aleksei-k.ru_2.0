@@ -14,12 +14,23 @@
 
 ## Запуск:
 
-cd mongodb-docker  
-docker compose up -d
-
 npm run build  
 npm run start  
 npm run dev
+
+## Основные размеры:
+
+@media (max-width: 991px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 575px) {
+
+}
 
 ## Далее идут просто полезные ссылки, которые я скоро разберу
 
