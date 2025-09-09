@@ -23,10 +23,10 @@
   color: #fff;
 }
 
-.header_logo_search a {
+/* .header_logo_search a {
   text-decoration: none;
   color: #fff;
-}
+} */
 
 @media (max-width: 991px) {
 }
