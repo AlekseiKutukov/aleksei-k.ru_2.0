@@ -1,98 +1,3 @@
-// "use client";
-
-// import { useState, useRef, useEffect } from "react";
-// import Link from "next/link";
-// import { useRouter } from "next/navigation";
-// // import transliterate from "@/components/utils/transliterate";
-// import styles from "./Search.module.sass";
-
-// const Search = () => {
-//   const [query, setQuery] = useState("");
-//   const [results, setResults] = useState([]);
-//   const router = useRouter();
-//   const inputRef = useRef(null);
-
-//   // Функция для выполнения поиска
-//   const fetchResults = async (searchQuery) => {
-//     if (!searchQuery.trim()) {
-//       setResults([]);
-//       return;
-//     }
-
-//     const response = await fetch(
-//       `/api/search?query=${encodeURIComponent(searchQuery)}`
-//     );
-//     const data = await response.json();
-//     setResults(data);
-//   };
-
-//   // Debounce для поиска
-//   useEffect(() => {
-//     const timeoutId = setTimeout(() => {
-//       fetchResults(query);
-//     }, 500);
-
-//     return () => clearTimeout(timeoutId);
-//   }, [query]);
-
-//   // Очистка при изменении URL (навигация назад/вперёд)
-//   useEffect(() => {
-//     const handleRouteChange = () => {
-//       setQuery("");
-//       setResults([]);
-//       inputRef.current?.blur(); // Убираем фокус с инпута
-//     };
-
-//     window.addEventListener("popstate", handleRouteChange);
-//     return () => window.removeEventListener("popstate", handleRouteChange);
-//   }, []);
-
-//   // Обработчик клика по ссылке
-//   const handleLinkClick = () => {
-//     setQuery(""); // Очищаем поле ввода
-//     setResults([]); // Очищаем результаты
-//     inputRef.current?.blur(); // Убираем фокус с инпута
-//   };
-
-//   return (
-//     <div className={styles.input_group}>
-//       <input
-//         ref={inputRef}
-//         className={styles.search}
-//         type="text"
-//         value={query}
-//         onChange={(e) => setQuery(e.target.value)}
-//         placeholder="Что-то ищите?"
-//       />
-
-//       {results.length === 0 && query && (
-//         <p className={styles.noResults}>Нет соответствий</p>
-//       )}
-
-//       <span className={styles.bar}></span>
-
-//       {results.length > 0 && (
-//         <ul className={styles.results}>
-//           {results.slice(0, 6).map((person) => (
-//             <li key={person._id} className={styles.resultItem}>
-//               <Link
-//                 href={`/${transliterate(person.country)}/${person.name
-//                   .toLowerCase()
-//                   .replace(/\s+/g, "-")}`}
-//                 className={styles.link}
-//                 onClick={handleLinkClick} // Добавляем обработчик клика
-//               >
-//                 {person.name}
-//               </Link>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// };
-// export default Search;
-
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -113,7 +18,6 @@ const Search = () => {
       return;
     }
 
-    // ⭐ ИЗМЕНЕНИЕ 1: Используем параметр `q` в URL, как в нашей API-логике
     const response = await fetch(
       `/api/search?q=${encodeURIComponent(searchQuery)}`
     );
@@ -149,11 +53,25 @@ const Search = () => {
     return () => window.removeEventListener("popstate", handleRouteChange);
   }, []);
 
-  // Обработчик клика по ссылке
+  // Обработчик клика по ссылке, очищаем и уходим с поля поиска
   const handleLinkClick = () => {
     setQuery(""); // Очищаем поле ввода
     setResults([]); // Очищаем результаты
     inputRef.current?.blur(); // Убираем фокус с инпута
+  };
+
+  // функция создания пути для материала
+  const createLink = (title, collection) => {
+    let link = "";
+    switch (collection) {
+      case "js":
+        link = "/js#" + title;
+        break;
+      case "react":
+        link = "/react/hooks/" + title;
+        break;
+    }
+    return link;
   };
 
   return (
@@ -180,12 +98,11 @@ const Search = () => {
           {results.slice(0, 6).map((item) => (
             <li key={item._id} className={styles.resultItem}>
               <Link
-                // href={`#${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                href={`ya.ru`}
+                href={createLink(item.title, item.collection)}
                 className={styles.link}
                 onClick={handleLinkClick}
               >
-                {item["1_title"] && item["2_title"]}
+                {item.title}
               </Link>
             </li>
           ))}
