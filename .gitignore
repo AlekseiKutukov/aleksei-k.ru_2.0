@@ -12,6 +12,8 @@
 /public
 .env.local
 /mongodb-docker/*
+add.txt
+
 # testing
 /coverage
 add.txt
