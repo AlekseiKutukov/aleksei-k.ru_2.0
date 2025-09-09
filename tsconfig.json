@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/markupPage/Menu/Menu.jsx",
-    "src/*"
+    "src/*",
+    "src/components/UI/Search/Search.jsx"
   ],
   "exclude": ["node_modules"]
 }

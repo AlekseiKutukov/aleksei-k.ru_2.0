@@ -1,5 +1,5 @@
-import dbConnect from '../../../../../../lib/mongodb';
-import mongoose from 'mongoose';
+import dbConnect from "../../../../../../lib/mongodb";
+import mongoose from "mongoose";
 
 export async function GET(req, context) {
   try {
@@ -9,38 +9,38 @@ export async function GET(req, context) {
     const params = await context.params;
     if (!params || !params.title) {
       return new Response(
-        JSON.stringify({ error: 'Название статьи не указано' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({ error: "Название статьи не указано" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
     const title = params.title;
 
-    const collection = mongoose.connection.db.collection('react');
+    const collection = mongoose.connection.db.collection("react");
     const article = await collection.findOne({
-      '1_title': { $regex: new RegExp(`^${title}$`, 'i') },
+      title: { $regex: new RegExp(`^${title}$`, "i") },
     });
 
     if (!article) {
-      return new Response(JSON.stringify({ error: 'Статья не найдена' }), {
+      return new Response(JSON.stringify({ error: "Статья не найдена" }), {
         status: 404,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
     }
 
     return new Response(JSON.stringify(article), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     return new Response(
       JSON.stringify({
-        error: 'Ошибка получения данных',
+        error: "Ошибка получения данных",
         details: error.message,
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       }
     );
   }

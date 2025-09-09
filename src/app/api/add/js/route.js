@@ -1,29 +1,29 @@
-import dbConnect from '../../../../../lib/mongodb';
-import mongoose from 'mongoose';
+import dbConnect from "../../../../../lib/mongodb";
+import mongoose from "mongoose";
 
 export async function POST(req) {
   try {
     await dbConnect(); // Подключаемся к базе данных
     const data = await req.json(); // Получаем данные из формы
 
-    const collection = mongoose.connection.db.collection('js');
+    const collection = mongoose.connection.db.collection("js");
 
     await collection.insertOne({
-      '1_myId': data['1_myId'],
-      '2_title': data['2_title'],
-      '3_description': data['3_description'],
-      '4_exampleCode': data['4_exampleCode'],
+      myId: data["myId"],
+      title: data["title"],
+      description: data["description"],
+      exampleCode: data["exampleCode"],
     });
 
-    return new Response(JSON.stringify({ message: 'Статья добавлена' }), {
+    return new Response(JSON.stringify({ message: "Статья добавлена" }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: 'Ошибка сервера' }), {
+    return new Response(JSON.stringify({ error: "Ошибка сервера" }), {
       status: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }

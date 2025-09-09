@@ -7,10 +7,10 @@ import style from "./style.module.css";
 export default function AddArticle() {
   const { authenticate } = useAuthPrompt();
   const [formData, setFormData] = useState({
-    "1_myId": "",
-    "2_title": "",
-    "3_description": "",
-    "4_exampleCode": "",
+    myId: "",
+    title: "",
+    description: "",
+    exampleCode: "",
   });
 
   const handleChange = (e) => {
@@ -34,10 +34,10 @@ export default function AddArticle() {
       if (res.ok) {
         alert("Статья успешно добавлена!");
         setFormData({
-          "1_myId": "",
-          "2_title": "",
-          "3_description": "",
-          "4_exampleCode": "",
+          myId: "",
+          title: "",
+          description: "",
+          exampleCode: "",
         });
       } else {
         alert("Ошибка при добавлении статьи");
@@ -53,46 +53,46 @@ export default function AddArticle() {
       <h1>Добавление нового о js</h1>
       <form onSubmit={handleSubmit}>
         <div className={style.block}>
-          <label htmlFor="1_myId">Введи ID, по нему идет сортировка</label>
+          <label htmlFor="myId">Введи ID, по нему идет сортировка</label>
           <br />
           <input
             className={style.input_num}
             type="number"
-            name="1_myId"
-            value={formData["1_myId"]}
+            name="myId"
+            value={formData["myId"]}
             onChange={handleChange}
             required //флаг обязательно к заполнению
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="2_title">Заголовок</label>
+          <label htmlFor="title">Заголовок</label>
           <br />
           <textarea
             className={style.textarea}
             type="text"
-            name="2_title"
-            value={formData["2_title"]}
+            name="title"
+            value={formData["title"]}
             onChange={handleChange}
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="3_description">Описание</label>
+          <label htmlFor="description">Описание</label>
           <br />
           <textarea
             className={style.textarea}
-            name="3_description"
-            value={formData["3_description"]}
+            name="description"
+            value={formData["description"]}
             onChange={handleChange}
             required
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="4_exampleCode">Пример кода</label>
+          <label htmlFor="exampleCode">Пример кода</label>
           <br />
           <textarea
             className={style.textarea}
-            name="4_exampleCode"
-            value={formData["4_exampleCode"]}
+            name="exampleCode"
+            value={formData["exampleCode"]}
             onChange={handleChange}
           />
         </div>

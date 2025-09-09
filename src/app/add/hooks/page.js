@@ -7,13 +7,13 @@ import style from "./style.module.css";
 export default function AddArticle() {
   const { authenticate } = useAuthPrompt();
   const [formData, setFormData] = useState({
-    "1_title": "",
-    "2_memorandum": "",
-    "3_description": "",
-    "4_whatDoesItDo": "",
-    "5_whenToUse": "",
-    "6_example": "",
-    "7_important": "",
+    title: "",
+    memorandum: "",
+    description: "",
+    whatDoesItDo: "",
+    whenToUse: "",
+    example: "",
+    important: "",
   });
 
   const handleChange = (e) => {
@@ -37,13 +37,13 @@ export default function AddArticle() {
       if (res.ok) {
         alert("Статья успешно добавлена!");
         setFormData({
-          "1_title": "",
-          "2_memorandum": "",
-          "3_description": "",
-          "4_whatDoesItDo": "",
-          "5_whenToUse": "",
-          "6_example": "",
-          "7_important": "",
+          title: "",
+          memorandum: "",
+          description: "",
+          whatDoesItDo: "",
+          whenToUse: "",
+          example: "",
+          important: "",
         });
       } else {
         alert("Ошибка при добавлении статьи");
@@ -59,76 +59,76 @@ export default function AddArticle() {
       <h1>Добавление нового хука</h1>
       <form onSubmit={handleSubmit}>
         <div className={style.block}>
-          <label htmlFor="1_title">Название</label>
+          <label htmlFor="title">Название</label>
           <br />
           <input
             className={style.input}
             type="text"
-            name="1_title"
-            value={formData["1_title"]}
+            name="title"
+            value={formData["title"]}
             onChange={handleChange}
             required //флаг обязательно к заполнению
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="2_memorandum">Короткое описание</label>
+          <label htmlFor="memorandum">Короткое описание</label>
           <br />
           <textarea
             className={style.textarea}
             type="text"
-            name="2_memorandum"
-            value={formData["2_memorandum"]}
+            name="memorandum"
+            value={formData["memorandum"]}
             onChange={handleChange}
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="3_description">Описание</label>
+          <label htmlFor="description">Описание</label>
           <br />
           <textarea
             className={style.textarea}
-            name="3_description"
-            value={formData["3_description"]}
+            name="description"
+            value={formData["description"]}
             onChange={handleChange}
             required
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="4_whatDoesItDo">Что делает хук?</label>
+          <label htmlFor="whatDoesItDo">Что делает хук?</label>
           <br />
           <textarea
             className={style.textarea}
-            name="4_whatDoesItDo"
-            value={formData["4_whatDoesItDo"]}
+            name="whatDoesItDo"
+            value={formData["whatDoesItDo"]}
             onChange={handleChange}
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="5_whenToUse">Когда использовать?</label>
+          <label htmlFor="whenToUse">Когда использовать?</label>
           <br />
           <textarea
             className={style.textarea}
-            name="5_whenToUse"
-            value={formData["5_whenToUse"]}
+            name="whenToUse"
+            value={formData["whenToUse"]}
             onChange={handleChange}
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="6_example">Пример</label>
+          <label htmlFor="example">Пример</label>
           <br />
           <textarea
             className={style.textarea}
-            name="6_example"
-            value={formData["6_example"]}
+            name="example"
+            value={formData["example"]}
             onChange={handleChange}
           />
         </div>
         <div className={style.block}>
-          <label htmlFor="7_important">Важные моменты</label>
+          <label htmlFor="important">Важные моменты</label>
           <br />
           <textarea
             className={style.textarea}
-            name="7_important"
-            value={formData["7_important"]}
+            name="important"
+            value={formData["important"]}
             onChange={handleChange}
           />
         </div>

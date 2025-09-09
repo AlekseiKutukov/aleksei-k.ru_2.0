@@ -18,6 +18,13 @@ npm run build
 npm run start  
 npm run dev
 
+## Для работы поиска по сайту, необходимо добавлять логику создания пути ссылки:
+
+### Сейчас реализовано (Search.jsx - createLink):
+
+/js  
+/react/hooks/
+
 ## Основные размеры:
 
 @media (max-width: 991px) {
