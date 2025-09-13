@@ -37,10 +37,12 @@ body {
 }
 
 button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

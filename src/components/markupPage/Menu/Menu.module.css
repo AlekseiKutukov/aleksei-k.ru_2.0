@@ -1,4 +1,4 @@
-.nav {
+.menu__desktopNav {
   position: relative;
   top: 0;
   left: 0;
@@ -8,11 +8,11 @@
   justify-content: center;
 }
 
-[data-theme="dark"] .nav {
+[data-theme="dark"] .menu__desktopNav {
   background: #003762;
 }
 
-.navList {
+.menu__desktopList {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -20,25 +20,25 @@
   margin: 0;
 }
 
-.navItem {
+.menu__desktopItem {
   position: relative;
   width: 100px;
   height: 60px;
   cursor: pointer;
   background: #0d80d8;
   font-weight: bold;
-  transition: transform 0.4s ease-out; /* Указываем конкретно transform */
+  transition: transform 0.4s ease-out;
   border-right: 2px solid #fdfdfd;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-[data-theme="dark"] .navItem {
+[data-theme="dark"] .menu__desktopItem {
   background: #003762;
 }
 
-.navItem:first-child {
+.menu__desktopItem:first-child {
   border-left: 2px solid #fdfdfd;
 }
 
@@ -48,42 +48,216 @@
   fill: #fff;
 }
 
-.navText {
+.menu__desktopText {
   position: absolute;
-  top: 100%; /* Текст начинается сразу под элементом */
+  top: 100%;
   left: 0;
   width: 100%;
-  height: 60px; /* Уменьшаем высоту текста до высоты элемента */
+  height: 60px;
   background: #eaeaea;
   color: #0d80d8;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0; /* Начальная прозрачность */
-  transform: perspective(400px) rotateX(-90deg); /* Начальное свёрнутое состояние */
-  transform-origin: top; /* Точка вращения — верх текста */
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Синхронизируем с navItem */
+  opacity: 0;
+  transform: perspective(400px) rotateX(-90deg);
+  transform-origin: top;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
 
-[data-theme="dark"] .navText {
+[data-theme="dark"] .menu__desktopText {
   background: #3c3c3c;
   color: #cacaca;
 }
-.navItem:hover,
-.navItem.active {
-  transform: translateY(-60px); /* Сдвиг вверх на высоту элемента */
+
+.menu__desktopItem:hover,
+.menu__desktopItem.active {
+  transform: translateY(-60px);
 }
 
-.navItem:hover .navText,
-.navItem.active .navText {
+.menu__desktopItem:hover .menu__desktopText,
+.menu__desktopItem.active .menu__desktopText {
   opacity: 1;
-  transform: perspective(400px) rotateX(0deg); /* Разворот текста */
+  transform: perspective(400px) rotateX(0deg);
 }
 
-/* Убираем лишнее */
-.navItem > div {
-  display: inline-block;
-  padding: 25px 0;
-  background: transparent;
-  position: relative;
+.menu__desktopItem > div {
+  display: none;
+}
+
+[data-theme="dark"] .pageContent {
+  background: #1a1a1a;
+  color: #cacaca;
+}
+
+.menu__mobile {
+  display: none;
+}
+
+/* Tablet Styles */
+@media (max-width: 800px) {
+  .menu__desktopItem {
+    width: 80px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .menu__desktopNav {
+    display: none;
+  }
+
+  .menu__desktop {
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    min-height: 85vh;
+  }
+
+  /* Кнопка меню крестик  */
+  .menu__button {
+    padding: 18px;
+    background: #0d80d8;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu__buttonLine {
+    width: 35px;
+    height: 3px;
+    background-color: #333;
+    margin: 2.5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .menu__buttonActive1 {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu__buttonActive2 {
+    opacity: 0;
+  }
+  .menu__buttonActive3 {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* ------------------------------------------ */
+
+  .menu__mobileLink {
+    display: flex;
+    color: #fff;
+    padding: 25px 0 25px 25px;
+    text-transform: uppercase;
+    gap: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .menu__mobile {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block;
+  }
+
+  /* Анимация появления меню */
+  .menu__mobileItem1 {
+    background-color: #16a085;
+  }
+  .menu__mobileItem2 {
+    background-color: #29b865;
+  }
+  .menu__mobileItem3 {
+    background-color: #2980b9;
+  }
+  .menu__mobileItem4 {
+    background-color: #8e44ad;
+  }
+  .menu__mobileItem5 {
+    background-color: #2c3e50;
+  }
+  .menu__mobileItem6 {
+    background-color: #f39c12;
+  }
+  .menu__mobileItem7 {
+    background-color: #d35400;
+  }
+  .menu__mobileItem8 {
+    background-color: #c0392b;
+  }
+
+  .menu__mobile.flip li {
+    animation: shake 300ms linear;
+    transform-origin: 50% 50%;
+    animation-iteration-count: 2;
+  }
+
+  .menu__mobile.flip li:nth-child(1) {
+    animation-delay: 100ms;
+  }
+  .menu__mobile.flip li:nth-child(2) {
+    animation-delay: 200ms;
+  }
+  .menu__mobile.flip li:nth-child(3) {
+    animation-delay: 300ms;
+  }
+  .menu__mobile.flip li:nth-child(4) {
+    animation-delay: 400ms;
+  }
+  .menu__mobile.flip li:nth-child(5) {
+    animation-delay: 500ms;
+  }
+  .menu__mobile.flip li:nth-child(6) {
+    animation-delay: 600ms;
+  }
+  .menu__mobile.flip li:nth-child(7) {
+    animation-delay: 700ms;
+  }
+  .menu__mobile.flip li:nth-child(8) {
+    animation-delay: 800ms;
+  }
+
+  .container {
+    transform: translateZ(100px);
+    transition: transform 500ms;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .container.flip {
+    transform: rotateY(90deg) translateZ(288px);
+  }
+
+  .fade {
+    animation: fade 3000ms;
+  }
+
+  /* Animations */
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }
