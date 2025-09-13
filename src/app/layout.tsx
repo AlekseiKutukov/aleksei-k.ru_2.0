@@ -35,8 +35,10 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-        <Menu />
-        <div className="main">{children}</div>
+        <Menu>
+          <div className="main">{children}</div>
+        </Menu>
+        {/* <div className="main">{children}</div> */}
         <Suspense>
           <MetrikaYandex />
         </Suspense>

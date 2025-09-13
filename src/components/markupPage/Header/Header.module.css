@@ -42,5 +42,6 @@
   .header__search {
     justify-content: center;
     margin: 10px 0;
+    display: flex;
   }
 }
