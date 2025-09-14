@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/components/markupPage/Menu/Menu.jsx",
     "src/*",
-    "src/components/UI/Search/Search.jsx"
+    "src/components/UI/Search/Search.jsx",
+    "src/app/portfolio/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
