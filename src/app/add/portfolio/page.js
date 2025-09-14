@@ -12,11 +12,22 @@ const portfolioFields = [
   },
   {
     name: "technologyStack",
-    label: "Использованые технологии:",
-    type: "textarea",
+    label: "Использованые технологии (через запятую)",
+    type: "text",
     required: true,
   },
-  { name: "skrin", label: "Скриншот", type: "textarea", required: true },
+  {
+    name: "linkGit",
+    label: "Ссылка на репозитарий",
+    type: "text",
+    required: false,
+  },
+  {
+    name: "linkSite",
+    label: "Демонстрация (ссылка на сайт)",
+    type: "text",
+    required: false,
+  },
 ];
 
 const emptyPortfolioForm = {
@@ -24,6 +35,8 @@ const emptyPortfolioForm = {
   description: "",
   technologyStack: "",
   skrin: "",
+  linkGit: "",
+  linkSite: "",
 };
 
 export default function AddPortfolioPage() {
@@ -35,6 +48,7 @@ export default function AddPortfolioPage() {
         apiUrl="/api/add/portfolio"
         successMessage="Статья успешно добавлена!"
         emptyFormState={emptyPortfolioForm}
+        hasImageUpload={true}
       />
     </>
   );

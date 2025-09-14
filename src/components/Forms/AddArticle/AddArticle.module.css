@@ -18,3 +18,7 @@
 .form__button:hover {
   background-color: #0056b3;
 }
+
+.form__input {
+  padding: 5px 0;
+}

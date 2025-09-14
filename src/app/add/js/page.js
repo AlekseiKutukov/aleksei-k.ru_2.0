@@ -9,7 +9,7 @@ const jsFields = [
     type: "number",
     required: true,
   },
-  { name: "title", label: "Заголовок", type: "textarea", required: false },
+  { name: "title", label: "Заголовок", type: "text", required: true },
   { name: "description", label: "Описание", type: "textarea", required: true },
   {
     name: "exampleCode",

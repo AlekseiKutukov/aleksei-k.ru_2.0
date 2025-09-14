@@ -1,22 +1,29 @@
+// src/components/Forms/AddArticle/AddArticle.js
+
 "use client";
 
 import { useState } from "react";
 import { useAuthPrompt } from "@/hooks/useAuthPrompt";
 import styles from "./AddArticle.module.css";
 
-// Компонент принимает props: fieldsConfig, apiUrl, successMessage, emptyFormState
 export default function AddArticleForm({
   fieldsConfig,
   apiUrl,
   successMessage,
   emptyFormState,
+  hasImageUpload = false,
 }) {
   const { authenticate } = useAuthPrompt();
   const [formData, setFormData] = useState(emptyFormState);
+  const [file, setFile] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+    if (name === "image") {
+      setFile(files[0]);
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -25,16 +32,29 @@ export default function AddArticleForm({
     if (!authenticate()) {
       return;
     }
+
     try {
+      // Создаем объект FormData
+      const data = new FormData();
+      // Добавляем текстовые данные из состояния формы
+      for (const key in formData) {
+        data.append(key, formData[key]);
+      }
+      // Добавляем файл, если он выбран
+      if (file) {
+        data.append("image", file);
+      }
+
+      // Отправляем FormData вместо JSON
       const res = await fetch(apiUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: data,
       });
 
       if (res.ok) {
         alert(successMessage);
         setFormData(emptyFormState);
+        setFile(null); // Сбрасываем файл после успешной загрузки
       } else {
         alert("Ошибка при добавлении статьи");
       }
@@ -49,7 +69,6 @@ export default function AddArticleForm({
       {fieldsConfig.map((field) => (
         <div key={field.name} className={styles.form__block}>
           <label htmlFor={field.name}>{field.label}</label>
-
           {field.type === "textarea" ? (
             <textarea
               className={styles.form__textarea}
@@ -63,13 +82,28 @@ export default function AddArticleForm({
               className={styles.form__input}
               type={field.type}
               name={field.name}
-              value={formData[field.name] || ""}
+              value={
+                field.type !== "file" ? formData[field.name] || "" : undefined
+              }
               onChange={handleChange}
               required={field.required}
             />
           )}
         </div>
       ))}
+      {/* Добавляем поле для загрузки изображения */}
+      {hasImageUpload && (
+        <div className={styles.form__block}>
+          <label htmlFor="image">Скриншот (загрузить изображение)</label>
+          <input
+            className={styles.form__input}
+            type="file"
+            id="image"
+            name="image"
+            onChange={handleChange}
+          />
+        </div>
+      )}
       <button className={styles.form__button} type="submit">
         Добавить статью
       </button>
