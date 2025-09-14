@@ -1,0 +1,20 @@
+.form__block {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.form__button {
+  background-color: #0d80d8;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.form__button:hover {
+  background-color: #0056b3;
+}

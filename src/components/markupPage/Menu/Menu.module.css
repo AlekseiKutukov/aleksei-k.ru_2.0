@@ -90,7 +90,8 @@
   color: #cacaca;
 }
 
-.menu__mobile {
+.menu__mobile,
+.menu__button {
   display: none;
 }
 
