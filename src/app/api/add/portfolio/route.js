@@ -1,5 +1,6 @@
 import dbConnect from "../../../../../lib/mongodb";
 import mongoose from "mongoose";
+import { createSlug } from "@/utils/slug";
 
 export async function POST(req) {
   try {
@@ -9,7 +10,8 @@ export async function POST(req) {
     const collection = mongoose.connection.db.collection("portfolio"); // Коллекция 'react'
 
     await collection.insertOne({
-      title: data["title"],
+      title: data.title,
+      slug: createSlug(data.title),
     });
 
     return new Response(JSON.stringify({ message: "Статья добавлена" }), {

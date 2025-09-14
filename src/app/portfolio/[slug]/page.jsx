@@ -1,19 +1,19 @@
 import { notFound } from "next/navigation";
 import style from "./page.module.css";
 
-async function fetchArticle(title) {
+async function fetchArticle(slug) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   if (!baseUrl) {
     throw new Error("Базовый URL не указан");
   }
 
-  const res = await fetch(`${baseUrl}/api/get/portfolio/${title}`, {
+  const res = await fetch(`${baseUrl}/api/get/portfolio/${slug}`, {
     cache: "no-store",
   });
 
   if (!res.ok) {
-    throw new Error(`Статья с названием "${title}" не найдена`);
+    throw new Error(`Статья с названием "${slug}" не найдена`);
   }
 
   return res.json();
@@ -21,14 +21,13 @@ async function fetchArticle(title) {
 
 // Генерация метаданных
 export async function generateMetadata(props) {
-  const params = await props.params;
-  const { title } = params;
+  const { slug } = await props.params;
 
   try {
-    const article = await fetchArticle(title);
+    const article = await fetchArticle(slug);
 
     return {
-      title: `Проект ${article["title"]}`,
+      title: `Проект ${article.title}`,
       description: "Описание проекта",
       //   description: article["description"],
     };
@@ -41,11 +40,9 @@ export async function generateMetadata(props) {
 }
 
 export default async function ArticlePage(props) {
-  // "await" для params
-  const params = await props.params;
-  const { title } = params;
+  const { slug } = await props.params;
 
-  if (!title) {
+  if (!slug) {
     return (
       <div>
         <h1>Ошибка</h1>
@@ -55,11 +52,11 @@ export default async function ArticlePage(props) {
   }
 
   try {
-    const article = await fetchArticle(title);
+    const article = await fetchArticle(slug);
 
     return (
       <div className={style.content}>
-        <h1>{article["title"]}</h1>
+        <h1>{article.title}</h1>
       </div>
     );
   } catch {

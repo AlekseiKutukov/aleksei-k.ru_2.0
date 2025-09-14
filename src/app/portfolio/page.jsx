@@ -31,7 +31,7 @@ const page = async () => {
           {articles.map((article) => (
             <Link
               key={article._id}
-              href={`/portfolio/${article["title"]}`}
+              href={`/portfolio/${article.slug}`}
               className={style.button_hooks}
             >
               <span>{article["title"]}</span>

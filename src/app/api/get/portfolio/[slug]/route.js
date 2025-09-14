@@ -7,18 +7,18 @@ export async function GET(req, context) {
 
     // Ждем разрешения params
     const params = await context.params;
-    if (!params || !params.title) {
+    if (!params || !params.slug) {
       return new Response(
         JSON.stringify({ error: "Название статьи не указано" }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    const title = params.title;
+    const slug = params.slug;
 
     const collection = mongoose.connection.db.collection("portfolio");
     const article = await collection.findOne({
-      title: { $regex: new RegExp(`^${title}$`, "i") },
+      slug: { $regex: new RegExp(`^${slug}$`, "i") },
     });
 
     if (!article) {
