@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import style from "./page.module.css";
+import styles from "./page.module.css";
 
 // Функция для получения списка статей
 async function fetchArticles() {
@@ -27,14 +28,21 @@ const page = async () => {
     return (
       <section>
         <h1>Портфолио</h1>
-        <div className={style.block_hooks}>
+        <div className={styles.block_hooks}>
           {articles.map((article) => (
             <Link
               key={article._id}
               href={`/portfolio/${article.slug}`}
-              className={style.button_hooks}
+              className={styles.button_hooks}
             >
               <span>{article["title"]}</span>
+              <Image
+                src="/image/portfolio/prototip-nebolshogo-banka.png"
+                alt="Интернет банк"
+                width={300}
+                height={300}
+                className={styles.content__git}
+              />
             </Link>
           ))}
         </div>

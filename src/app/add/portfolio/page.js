@@ -28,6 +28,12 @@ const portfolioFields = [
     type: "text",
     required: false,
   },
+  {
+    name: "logikJob",
+    label: "Логика работы (через |)",
+    type: "textarea",
+    required: true,
+  },
 ];
 
 const emptyPortfolioForm = {
@@ -37,6 +43,7 @@ const emptyPortfolioForm = {
   skrin: "",
   linkGit: "",
   linkSite: "",
+  logikJob: "",
 };
 
 export default function AddPortfolioPage() {

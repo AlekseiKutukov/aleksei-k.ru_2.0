@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
-import style from "./page.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 async function fetchArticle(slug) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -28,8 +30,7 @@ export async function generateMetadata(props) {
 
     return {
       title: `Проект - ${article.title}`,
-      description: "Описание проекта",
-      //   description: article["description"],
+      description: `${article.description.slice(0, 200)}`,
     };
   } catch {
     return {
@@ -55,9 +56,65 @@ export default async function ArticlePage(props) {
     const article = await fetchArticle(slug);
 
     return (
-      <div className={style.content}>
-        <h1>{article.title}</h1>
-      </div>
+      <section className={styles.content}>
+        <h1 className={styles.content__title}>{article.title}</h1>
+        <div className={styles.div}>{article.description}</div>
+
+        <div className={styles.content__tehno}>
+          <span className={styles.content__tehnoSpan}>{`Использованно:`}</span>
+
+          <ul className={styles.content__tehnoList}>
+            {article.technologyStack.split(",").map((tech, index) => (
+              <li key={index}>{tech}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.content__link}>
+          <span
+            className={styles.content__span}
+          >{`Посмотреть репозитарий или реализацию`}</span>
+
+          <Link
+            href={article.linkGit}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/image/icons/github.png"
+              alt="Иконка GitHub"
+              width={100}
+              height={50}
+              className={styles.content__git}
+            />
+          </Link>
+          <Link
+            href={article.linkSite}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/image/icons/linksite.png"
+              alt="Иконка на сайт"
+              width={100}
+              height={50}
+              className={styles.content__site}
+            />
+          </Link>
+        </div>
+
+        <div className={styles.content__logikJob}>
+          <span
+            className={styles.content__logikJobSpan}
+          >{`Логика работы:`}</span>
+
+          <ol className={styles.content__logikJobList}>
+            {article.logikJob.split("|").map((text, index) => (
+              <li key={index}>{text}</li>
+            ))}
+          </ol>
+        </div>
+      </section>
     );
   } catch {
     notFound();

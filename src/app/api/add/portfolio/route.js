@@ -18,6 +18,7 @@ export async function POST(req) {
     const skrinFile = formData.get("image");
     const linkGit = formData.get("linkGit");
     const linkSite = formData.get("linkSite");
+    const logikJob = formData.get("logikJob");
 
     let uniqueSlug = createSlug(title);
 
@@ -54,6 +55,7 @@ export async function POST(req) {
       skrin: skrinUrl,
       linkGit: linkGit,
       linkSite: linkSite,
+      logikJob: logikJob,
       slug: uniqueSlug,
     });
 
