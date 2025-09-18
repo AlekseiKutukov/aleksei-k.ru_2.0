@@ -26,23 +26,23 @@ const page = async () => {
     const articles = await fetchArticles();
 
     return (
-      <section>
+      <section className={styles.content}>
         <h1>Портфолио</h1>
-        <div className={styles.block_hooks}>
+        <div className={styles.content__articles}>
           {articles.map((article) => (
             <Link
               key={article._id}
               href={`/portfolio/${article.slug}`}
-              className={styles.button_hooks}
+              className={styles.content__article}
             >
-              <span>{article["title"]}</span>
               <Image
-                src="/image/portfolio/prototip-nebolshogo-banka.png"
-                alt="Интернет банк"
+                src={article.skrin}
+                alt={article.title}
                 width={300}
                 height={300}
-                className={styles.content__git}
+                className={styles.content__image}
               />
+              <h3>{article.title}</h3>
             </Link>
           ))}
         </div>
