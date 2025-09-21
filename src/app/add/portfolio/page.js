@@ -14,7 +14,7 @@ const portfolioFields = [
     name: "technologyStack",
     label: "Использованые технологии (через запятую)",
     type: "text",
-    required: true,
+    required: false,
   },
   {
     name: "linkGit",
@@ -32,7 +32,7 @@ const portfolioFields = [
     name: "logikJob",
     label: "Логика работы (через |)",
     type: "textarea",
-    required: true,
+    required: false,
   },
 ];
 

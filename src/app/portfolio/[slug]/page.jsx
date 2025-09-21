@@ -31,6 +31,7 @@ export async function generateMetadata(props) {
     return {
       title: `Проект - ${article.title}`,
       description: `${article.description.slice(0, 200)}`,
+      robots: "noindex", // <-- скрываем от роботов ПС (яндекс, гугл)
     };
   } catch {
     return {
@@ -58,62 +59,97 @@ export default async function ArticlePage(props) {
     return (
       <section className={styles.content}>
         <h1 className={styles.content__title}>{article.title}</h1>
-        <div className={styles.div}>{article.description}</div>
+        <div
+          className={styles.div}
+          dangerouslySetInnerHTML={{ __html: article.description }}
+        />
 
-        <div className={styles.content__tehno}>
-          <span className={styles.content__tehnoSpan}>{`Использованно:`}</span>
+        {article.technologyStack ? (
+          <div className={styles.content__tehno}>
+            <span
+              className={styles.content__tehnoSpan}
+            >{`Использованно:`}</span>
+            <ul className={styles.content__tehnoList}>
+              {article.technologyStack.split(",").map((tech, index) => (
+                <li key={index}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
-          <ul className={styles.content__tehnoList}>
-            {article.technologyStack.split(",").map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </ul>
-        </div>
+        {article.linkGit ? (
+          <div className={styles.content__link}>
+            <span
+              className={styles.content__span}
+            >{`Посмотреть репозитарий или реализацию`}</span>
 
-        <div className={styles.content__link}>
-          <span
-            className={styles.content__span}
-          >{`Посмотреть репозитарий или реализацию`}</span>
+            <Link
+              href={article.linkGit}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/image/icons/github.png"
+                alt="Иконка GitHub"
+                width={100}
+                height={50}
+                className={styles.content__git}
+              />
+            </Link>
+            <Link
+              href={article.linkSite}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/image/icons/linksite.png"
+                alt="Иконка на сайт"
+                width={100}
+                height={50}
+                className={styles.content__site}
+              />
+            </Link>
+          </div>
+        ) : null}
 
-          <Link
-            href={article.linkGit}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/image/icons/github.png"
-              alt="Иконка GitHub"
-              width={100}
-              height={50}
-              className={styles.content__git}
-            />
-          </Link>
+        {article.logikJob ? (
+          <div className={styles.content__logikJob}>
+            <span className={styles.content__logikJobSpan}>Логика работы:</span>
+            <ol className={styles.content__logikJobList}>
+              {article.logikJob.split("|").map((text, index) => (
+                <li
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: text.trim() }}
+                />
+              ))}
+            </ol>
+          </div>
+        ) : null}
+
+        {article.linkSite ? (
           <Link
             href={article.linkSite}
             target="_blank"
             rel="noopener noreferrer"
+            className={styles.content__skrin}
           >
             <Image
-              src="/image/icons/linksite.png"
-              alt="Иконка на сайт"
-              width={100}
-              height={50}
-              className={styles.content__site}
+              src={article.skrin}
+              alt={article.title}
+              fill
+              className={styles.content__image}
             />
           </Link>
-        </div>
-
-        <div className={styles.content__logikJob}>
-          <span
-            className={styles.content__logikJobSpan}
-          >{`Логика работы:`}</span>
-
-          <ol className={styles.content__logikJobList}>
-            {article.logikJob.split("|").map((text, index) => (
-              <li key={index}>{text}</li>
-            ))}
-          </ol>
-        </div>
+        ) : (
+          <div className={styles.content__skrin}>
+            <Image
+              src={article.skrin}
+              alt={article.title}
+              fill
+              className={styles.content__image}
+            />
+          </div>
+        )}
       </section>
     );
   } catch {

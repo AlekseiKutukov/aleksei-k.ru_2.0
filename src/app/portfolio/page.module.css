@@ -1,11 +1,10 @@
-.content {
-}
-
 .content h1 {
   margin-bottom: 20px;
 }
 
 .content__articles {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content__article {
