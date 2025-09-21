@@ -20,6 +20,10 @@ export default function Home() {
       <Link href="/add/js" className={styles.linkAdd}>
         <span>Добавить в js</span>
       </Link>
+      <br />
+      <Link href="/add/portfolio" className={styles.linkAdd}>
+        <span>Добавить в портфолио</span>
+      </Link>
     </>
   );
 }

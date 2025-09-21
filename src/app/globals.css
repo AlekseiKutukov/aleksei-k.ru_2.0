@@ -8,9 +8,17 @@
   --button-text: #ffffff;
 }
 
+h3 {
+  margin-top: 20px;
+}
+
 a {
   text-decoration: none;
   color: #000;
+}
+
+[data-theme="dark"] h3 {
+  color: #cacaca;
 }
 
 [data-theme="dark"] {
@@ -29,7 +37,7 @@ body {
 }
 
 .main {
-  min-height: 80vh;
+  min-height: 82vh;
   margin: 0 auto;
   max-width: 1000px;
   padding: 15px 15px 70px;
