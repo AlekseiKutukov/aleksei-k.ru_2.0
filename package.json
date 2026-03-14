@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "mongodb": "^7.1.0",
     "mongoose": "^8.12.2",
     "next": "15.2.3",
     "react": "^19.0.0",
