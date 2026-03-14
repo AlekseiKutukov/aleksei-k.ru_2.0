@@ -12,7 +12,7 @@
 /public
 .env.local
 /mongodb-docker/*
-add.txt
+future.txt
 
 # testing
 /coverage
