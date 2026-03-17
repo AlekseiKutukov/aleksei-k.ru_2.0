@@ -13,6 +13,7 @@
 .env.local
 /mongodb-docker/*
 future.txt
+job.txt
 
 # testing
 /coverage
