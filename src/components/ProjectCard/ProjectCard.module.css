@@ -1,0 +1,64 @@
+.card {
+  border: 1px solid #333;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #0070f3;
+}
+
+.title {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.description {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-grow: 1; /* Чтобы кнопки всегда были внизу, если описания разной длины */
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.tag {
+  background: #333;
+  color: #eee;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+
+.link {
+  color: #0070f3;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
